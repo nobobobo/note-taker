@@ -49,6 +49,23 @@ app.post("/api/notes", function (req, res) {
     });
 });
 
+app.delete("/api/notes/:id", function (req, res) {
+    const id = req.params.id;
+    fs.readFile(path.join(__dirname, "db/db.json"), (err, data) => {
+        if (err) throw err;
+        data = JSON.parse(data);
+        for (let i = 0; i < data.length; i++){
+            if (data[i].id === id){
+                data.splice(i,1); 
+            }
+        }
+        fs.writeFile(path.join(__dirname, "db/db.json"), JSON.stringify(data), (err) => {
+            if (err) throw err;
+            return res.end();
+        });
+    });
+})
+
 
 // start listening
 // =============================================================
