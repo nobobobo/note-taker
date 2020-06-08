@@ -3,6 +3,8 @@
 const express = require("express");
 const path = require("path");
 const http = require("http");
+const fs = require("fs");
+
 
 // Sets up the Express App
 // =============================================================
@@ -22,6 +24,31 @@ app.get("/notes", function (req, res) {
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "public/index.html"));
 });
+
+
+// set up path routings for API
+// =============================================================
+
+app.get("/api/notes", function (req, res) {
+    fs.readFile(path.join(__dirname, "db/db.json"), (err, data) => {
+        if (err) throw err;
+        return res.json(JSON.parse(data));
+    });
+});
+
+app.post("/api/notes", function (req, res) {
+    const note = req.body;
+    fs.readFile(path.join(__dirname, "db/db.json"), (err, data) => {
+        if (err) throw err;
+        data = JSON.parse(data);
+        data.push(note);
+        fs.writeFile(path.join(__dirname, "db/db.json"), JSON.stringify(data), (err) => {
+            if (err) throw err;
+            return res.json(note);
+        });
+    });
+});
+
 
 // start listening
 // =============================================================
