@@ -1,4 +1,4 @@
-# Welcome to Note Taker!
+# Welcome to note-taker!
 
 [![Generic badge](https://img.shields.io/badge/Version-1.0.0-GREEN.svg)](https://shields.io/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
@@ -27,9 +27,8 @@ npm install
 <a name="usage"></a>
 # 3. Usage 
 
-```
-node app.js
-```
+The app is hosted at Heroku: [Note Taker](https://pacific-ravine-75978.herokuapp.com/)
+
 
 <a name="license"></a>
 # 4. License 
@@ -43,7 +42,7 @@ This project is MIT License licensed.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check [issues page](https://github.com/nobobobo/employee_summary_generator/issues).<a name="test"></a>
+Feel free to check [issues page](https://github.com/nobobobo/note-taker/issues).<a name="test"></a>
 # 6. Tests 
 
 ```
