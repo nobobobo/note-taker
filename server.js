@@ -8,12 +8,14 @@ const fs = require("fs");
 
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
+let app = express();
+let PORT = process.env.PORT || 8080;
 // Sets up the Express app to handle data 
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
+
+// Set up the counter used as an ID of each note
 
 
 // set up path routings for HTML

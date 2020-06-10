@@ -132,12 +132,15 @@ const renderNoteList = (notes) => {
 
   if (notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
+  } else {
+    cnt= parseInt(notes[notes.length-1].id) + 1;
   }
 
   notes.forEach((note) => {
     const $li = create$li(note.title).data(note);
     noteListItems.push($li);
   });
+
 
   $noteList.append(noteListItems);
 };
